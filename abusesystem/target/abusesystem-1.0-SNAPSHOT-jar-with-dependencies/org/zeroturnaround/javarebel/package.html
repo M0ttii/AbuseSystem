@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<body bgcolor="white">
+<p>
+  Contains the core classes for the JavaRebel SDK that allow custom configuration and integration. 
+  The interfaces of main interest are {@link org.zeroturnaround.javarebel.Integration}, {@link org.zeroturnaround.javarebel.Configuration}, {@link org.zeroturnaround.javarebel.Reloader} and {@link org.zeroturnaround.javarebel.Logger}.
+  Instances of those interfaces are obtained correspondingly from 
+  {@link org.zeroturnaround.javarebel.IntegrationFactory}, {@link org.zeroturnaround.javarebel.ConfigurationFactory}, {@link org.zeroturnaround.javarebel.ReloaderFactory} and {@link org.zeroturnaround.javarebel.LoggerFactory}.
+</p>
+
+<p>
+  Also contains the {@link org.zeroturnaround.javarebel.Plugin} class that allows to write third-party JavaRebel plugins. 
+  You can do it by setting a custom JAR manifest attribute described in the {@link Plugin} javadoc.
+  For an example plugin checkout the <code>javarebel-integration</code> project from the  
+  <a href="http://zt-oss.googlecode.com/svn/JavaRebelIntegration/trunk/">SVN Repository</a>.
+</p>
+</body>
+</html>
