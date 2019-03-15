@@ -32,16 +32,16 @@ public class PunishCommand extends BaseCommand {
     }
 
     @Default
-    public void punish(CommandSender player) {
-        player.sendMessage(AbuseSystemConstants.AbuseSystem_PREFIX + "/punish [player] [reason]");
-        player.sendMessage(AbuseSystemConstants.AbuseSystem_PREFIX + "/unpunish [player]");
-        player.sendMessage(AbuseSystemConstants.AbuseSystem_PREFIX + "/pinfo [player]");
+    public void defaultMessage(CommandSender commandSender) {
+        commandSender.sendMessage(AbuseSystemConstants.AbuseSystem_PREFIX + "/punish [player] [reason]");
+        commandSender.sendMessage(AbuseSystemConstants.AbuseSystem_PREFIX + "/unpunish [player]");
+        commandSender.sendMessage(AbuseSystemConstants.AbuseSystem_PREFIX + "/pinfo [player]");
     }
 
     @Subcommand("optional optional")
     @CommandCompletion("@players @reason")
-    public void punishPlayer(CommandSender commandSender, @Optional String player, @Optional String reason) {
-        ProxiedPlayer proxiedPlayer = ProxyServer.getInstance().getPlayer(player);
+    @CommandPermission("abusesystem.punish")
+    public void punishPlayer(CommandSender commandSender, @Optional ProxiedPlayer proxiedPlayer, @Optional String reason) {
         ProxiedPlayer punisher = (ProxiedPlayer) commandSender;
 
         if(userRepository.findByUniqueId(proxiedPlayer.getUniqueId()) == null){
@@ -49,7 +49,7 @@ public class PunishCommand extends BaseCommand {
             return;
         }
 
-        if(proxiedPlayer.hasPermission("punish.punish")){
+        if(proxiedPlayer.hasPermission("abusesystem.punish")){
             commandSender.sendMessage("Du darfst diesen Spieler nicht bestrafen.");
             return;
         }

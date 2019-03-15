@@ -81,7 +81,6 @@ public class TemplateRepository extends Repository<AbuseSystemTemplate> {
         }else{
             nextpoints = set.floor(playerpoints);
         }
-        System.out.println(nextpoints);
         return query.getDifferentPunishmentTemplates().stream()
                 .filter(abuseSystemTemplatePunishment -> abuseSystemTemplatePunishment.getPointsNeeded() == nextpoints)
                 .findFirst()
